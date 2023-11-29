@@ -1,9 +1,7 @@
-local maps = require("maps")
 
 -- Set alias for global options, window options, and remap function
 local o = vim.o
 local wo = vim.wo
-local nnoremap = maps.nnoremap
 vim.g.mapleader = " "
 
 -- Lazy
