@@ -40,13 +40,27 @@ return {
       keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts) -- see available code actions, in visual mode will apply to selection
 
       opts.desc = "Smart rename"
-      keymap.set("n", "<leader>r", vim.lsp.buf.rename, opts) -- smart rename
+      keymap.set("n", "<space>sn", vim.lsp.buf.rename, opts) -- smart rename
 
 			opts.desc = "Show documentation for what is under cursor"
       keymap.set("n", "K", vim.lsp.buf.hover, opts)
 
 			opts.desc = "Signature info about symbol under cursor"
-			keymap.set("n", vim.lsp.buf.type_definition(), opts)
+			keymap.set("n", "<C-k>,  <cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
+
+				opts.desc = "Show buffer diagnostics"
+      keymap.set("n", "<leader>D", "<cmd>Telescope diagnostics bufnr=0<CR>", opts) -- show  diagnostics for file
+
+      opts.desc = "Show line diagnostics"
+      keymap.set("n", "<leader>d", vim.diagnostic.open_float, opts) -- show diagnostics for line
+
+      opts.desc = "Go to previous diagnostic"
+      keymap.set("n", "[d", vim.diagnostic.goto_prev, opts) -- jump to previous diagnostic in buffer
+
+      opts.desc = "Go to next diagnostic"
+      keymap.set("n", "]d", vim.diagnostic.goto_next, opts) -- jump to next diagnostic in buffer
+
+
     end
     -- used to enable autocompletion (assign to every lsp server config)
     local capabilities = cmp_nvim_lsp.default_capabilities()
@@ -63,6 +77,7 @@ return {
       capabilities = capabilities,
       on_attach = on_attach,
 			-- this is new
+			--[[
 			root_dir = function(fname)
 				local util = require 'lspconfig/util'
         local root_files = {
@@ -75,8 +90,14 @@ return {
         }
         return util.root_pattern(unpack(root_files))(fname) or util.find_git_ancestor(fname) or util.path.dirname(fname)
     end,
+		]]
     })
 
+		-- configure c++ server
+		lspconfig["clangd"].setup{
+			capabilities = capabilities,
+			on_attach = on_attach,
+		}
     -- configure lua server (with special settings)
     lspconfig["lua_ls"].setup({
       capabilities = capabilities,
