@@ -22,7 +22,7 @@ return {
       opts.buffer = bufnr
 
 			opts.desc = "Show type definition"
-			buf_set_keymap('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
+			buf_set_keymap('n', '<space>q', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
       -- set keybinds
       opts.desc = "Show LSP references"
       keymap.set("n", "gR", "<cmd>Telescope lsp_references<CR>", opts) -- show definition, references

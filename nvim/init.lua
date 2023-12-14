@@ -1,7 +1,11 @@
 local maps = require('maps')
+
 -- Set alias for global options, window options, and remap function
 local o = vim.o
 local wo = vim.wo
+local nnoremap = maps.nnoremap
+local map = vim.api.nvim_set_keymap
+
 vim.g.mapleader = " "
 
 -- Lazy
@@ -18,6 +22,7 @@ if not vim.loop.fs_stat(lazypath) then
   })
 end
 vim.opt.rtp:prepend(lazypath)
+
 require("lazy").setup({
 	{import = "plugins"},
 	{import = "plugins.lsp"},
@@ -48,9 +53,19 @@ o.splitright = true
 wo.number = true
 wo.relativenumber = true
 wo.wrap = true
+o.foldmethod = 'expr'
+o.foldexpr = 'nvim_treesitter#foldexpr()'
+
+vim.api.nvim_create_autocmd({ "BufRead" }, {
+	callback = function() o.foldlevel = 99 end
+})
+
+-- Get rid of search highlighting
+nnoremap('<leader>c', ":nohl<CR>")
 
 -- Remaps
-vim.keymap.set("i", "<C-;>", "<Esc>", { noremap = true})
-vim.keymap.set("n", "<C-]>", "<Cmd>vsp<CR>", {noremap = true })
-vim.keymap.set("n", "<C-->", "<Cmd>sp<CR>", {noremap = true })
+nnoremap("<C-]>", '<Cmd>vsp <C-R>=expand("%:p:h") . "/" <CR>')
+nnoremap("<C-->", '<Cmd>sp <C-R>=expand("%:p:h") . "/" <CR>')
 
+-- -- Colorscheme
+vim.cmd [[colorscheme kanagawa]]
