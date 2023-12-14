@@ -1,4 +1,4 @@
-
+local maps = require('maps')
 -- Set alias for global options, window options, and remap function
 local o = vim.o
 local wo = vim.wo
@@ -50,6 +50,7 @@ wo.relativenumber = true
 wo.wrap = true
 
 -- Remaps
-vim.keymap.set("i", "<C-[>", "<Esc>", { noremap = true})
+vim.keymap.set("i", "<C-;>", "<Esc>", { noremap = true})
 vim.keymap.set("n", "<C-]>", "<Cmd>vsp<CR>", {noremap = true })
 vim.keymap.set("n", "<C-->", "<Cmd>sp<CR>", {noremap = true })
+

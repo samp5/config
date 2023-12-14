@@ -17,9 +17,12 @@ return {
 			require "lsp-format".on_attach(client)
 
 			local keymap = vim.keymap -- for conciseness
+			local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr,...) end
 			local opts = { noremap = true, silent = true }
       opts.buffer = bufnr
 
+			opts.desc = "Show type definition"
+			buf_set_keymap('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
       -- set keybinds
       opts.desc = "Show LSP references"
       keymap.set("n", "gR", "<cmd>Telescope lsp_references<CR>", opts) -- show definition, references
@@ -60,6 +63,7 @@ return {
       opts.desc = "Go to next diagnostic"
       keymap.set("n", "]d", vim.diagnostic.goto_next, opts) -- jump to next diagnostic in buffer
 
+			buf_set_keymap('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
 
     end
     -- used to enable autocompletion (assign to every lsp server config)
@@ -97,6 +101,8 @@ return {
 		lspconfig["clangd"].setup{
 			capabilities = capabilities,
 			on_attach = on_attach,
+
+
 		}
     -- configure lua server (with special settings)
     lspconfig["lua_ls"].setup({

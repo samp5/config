@@ -24,9 +24,10 @@ return {
 			}
 		-- nnoremaps!
 		nnoremap('<leader>ff', '<cmd>lua require("telescope.builtin").find_files()<cr>')
-		nnoremap('gr', '<cmd>lua require("telescope.builtin").lsp_references()<cr>')
-		nnoremap('gi', '<cmd>lua require("telescope.builtin").lsp_implementations()<cr>')
-		nnoremap('gd', '<cmd>lua require("telescope.builtin").lsp_definitions()<cr>')
+		--nnoremap('gr', '<cmd>lua require("telescope.builtin").lsp_references()<cr>')
+		--nnoremap('gi', '<cmd>lua require("telescope.builtin").lsp_implementations()<cr>')
+		--nnoremap('gd', '<cmd>lua require("telescope.builtin").lsp_definitions()<cr>')
+		nnoremap('<leader>fs', '<cmd>lua require("telescope.builtin").live_grep()<cr>')
 		end
 	},
 }
