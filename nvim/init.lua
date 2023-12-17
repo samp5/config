@@ -1,5 +1,5 @@
 local maps = require('maps')
-
+local files = require('files')
 -- Set alias for global options, window options, and remap function
 local o = vim.o
 local wo = vim.wo
@@ -56,6 +56,15 @@ wo.wrap = true
 o.foldmethod = 'expr'
 o.foldexpr = 'nvim_treesitter#foldexpr()'
 
+-- persistent undos
+o.undofile = true
+o.undodir =  ".nvim/undo-dir/"
+
+if files.isdir(o.undodir) then
+	os.execute('mkdir -p '..o.undodir)
+end
+
+--folding 
 vim.api.nvim_create_autocmd({ "BufRead" }, {
 	callback = function() o.foldlevel = 99 end
 })
