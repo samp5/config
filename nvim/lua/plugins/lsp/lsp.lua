@@ -101,7 +101,7 @@ return {
 		lspconfig["clangd"].setup{
 			capabilities = capabilities,
 			on_attach = on_attach,
-
+			cmd = { "clangd", "--completion-style=detailed" }
 
 		}
     -- configure lua server (with special settings)
