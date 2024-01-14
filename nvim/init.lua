@@ -73,12 +73,16 @@ vim.api.nvim_create_autocmd({ "BufRead" }, {
 nnoremap('<leader>c', ":nohl<CR>")
 
 -- Remaps
+nnoremap("<leader><leader>", "<Esc>")
 nnoremap("<C-]>", '<Cmd>vsp <C-R>=expand("%:p:h") . "/" <CR>')
 nnoremap("<C-->", '<Cmd>sp <C-R>=expand("%:p:h") . "/" <CR>')
 nnoremap("<leader>;", 'a<Enter>{<Enter>}<Esc>O')
 nnoremap("<leader>'", 'a{<Enter>}<Esc>O')
 nnoremap("<leader>o", 'o<Esc>k')
 nnoremap("<leader>O", 'O<Esc>j')
+nnoremap("<leader><Enter>", 'i<Enter><Esc>k$')
 nnoremap("<leader>we", '<C-w>=')
+nnoremap("<leader>ws", '<C-w>x')
+vim.api.nvim_set_keymap('i', "<C-;>", '<Esc>a<Enter>{<Enter>}<Esc>O', {noremap = true})
 -- -- Colorscheme
 vim.cmd [[colorscheme kanagawa]]

@@ -101,9 +101,15 @@ return {
 		lspconfig["clangd"].setup{
 			capabilities = capabilities,
 			on_attach = on_attach,
-			cmd = { "clangd", "--completion-style=detailed" }
+			cmd = {
+				"clangd",
+				"--completion-style=bundled",
+				"--clang-tidy",
+				"--cross-file-rename",
+			}
 
 		}
+
     -- configure lua server (with special settings)
     lspconfig["lua_ls"].setup({
       capabilities = capabilities,

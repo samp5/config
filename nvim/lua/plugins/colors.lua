@@ -71,6 +71,7 @@ return {
 			})
 			vim.api.nvim_set_keymap('n', 'H', '<Plug>(cokeline-focus-prev)', { silent = true })
 			vim.api.nvim_set_keymap('n', 'L', '<Plug>(cokeline-focus-next)', { silent = true })
+			vim.api.nvim_set_keymap('n', '<C-%s>', '<Plug>(cokeline-close-%s)', {silent=true})
 		end
 	},
 	{
