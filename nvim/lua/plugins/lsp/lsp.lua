@@ -71,6 +71,7 @@ return {
     -- Change the Diagnostic symbols in the sign column (gutter)
     -- (not in youtube nvim video)
     local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
+
     for type, icon in pairs(signs) do
       local hl = "DiagnosticSign" .. type
       vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
@@ -80,22 +81,13 @@ return {
     lspconfig["pyright"].setup({
       capabilities = capabilities,
       on_attach = on_attach,
-			-- this is new
-			--[[
-			root_dir = function(fname)
-				local util = require 'lspconfig/util'
-        local root_files = {
-            'pyproject.toml',
-            'setup.py',
-            'setup.cfg',
-            'requirements.txt',
-            'Pipfile',
-            'pyrightconfig.json',
-        }
-        return util.root_pattern(unpack(root_files))(fname) or util.find_git_ancestor(fname) or util.path.dirname(fname)
-    end,
-		]]
     })
+
+		--configure mdx
+		lspconfig["mdx_analyzer"].setup{
+			capabilities = capabilities,
+			on_attach = on_attach,
+		}
 
 		-- configure c++ server
 		lspconfig["clangd"].setup{

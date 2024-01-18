@@ -7,7 +7,6 @@ local nnoremap = maps.nnoremap
 local map = vim.api.nvim_set_keymap
 
 vim.g.mapleader = " "
-
 -- Lazy
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
@@ -83,6 +82,7 @@ nnoremap("<leader>O", 'O<Esc>j')
 nnoremap("<leader><Enter>", 'i<Enter><Esc>k$')
 nnoremap("<leader>we", '<C-w>=')
 nnoremap("<leader>ws", '<C-w>x')
+nnoremap("<leader>c", 'o/*')
 vim.api.nvim_set_keymap('i', "<C-;>", '<Esc>a<Enter>{<Enter>}<Esc>O', {noremap = true})
 -- -- Colorscheme
 vim.cmd [[colorscheme kanagawa]]
