@@ -1,0 +1,26 @@
+# pattern in a file
+grep <pattern> <file>
+
+# case-insensitive search (with line numbers):
+grep -in <pattern> <file>
+
+# To recursively grep for string <pattern> in <dir>:
+grep -R <pattern> <dir>
+
+# Read the search patterns from a file:
+grep -f <pattern-file> <file>
+
+# Find lines NOT containing pattern:
+grep -v <pattern> <file>
+
+# Set how many lines to show before (-B) and after (-A) pattern:
+grep -B 3 -A 2 <pattern> <file>
+
+# To grep with regular expressions:
+grep "^00" <file>                                               # Match lines starting with 00
+grep -E "[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}" <file> # Find IP add
+
+# To find all files that match <pattern> in <dir>
+grep -rnw <dir> -e <pattern>
+
+

@@ -5,7 +5,6 @@ local o = vim.o
 local wo = vim.wo
 local nnoremap = maps.nnoremap
 local map = vim.api.nvim_set_keymap
-
 vim.g.mapleader = " "
 -- Lazy
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -57,7 +56,7 @@ o.foldexpr = 'nvim_treesitter#foldexpr()'
 
 -- persistent undos
 o.undofile = true
-o.undodir =  ".nvim/undo-dir/"
+o.undodir =  vim.fn.stdpath('data') .. "/.nvim/undo-dir"
 
 if files.isdir(o.undodir) then
 	os.execute('mkdir -p '..o.undodir)

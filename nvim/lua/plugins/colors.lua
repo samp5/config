@@ -10,6 +10,7 @@ return {
 				keywordStyle = { italic = false },
 				statementStyle = { bold = true },
 				dimInactive = false, -- dim inactive window `:h hl-NormalNC`
+				transparent = true,
 				terminalColors = true, -- define vim.g.terminal_color_{0,17}
 				colors = {
 					-- add/modify theme and palette colors
