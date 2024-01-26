@@ -1,0 +1,15 @@
+---
+syntax: bash
+tags: [ bash ]
+---
+# define functions like this
+❯ function myfunc {
+∙       echo "Hello World"
+∙ }
+
+# access variable like this
+❯ function myfunc {
+∙       echo $1
+∙       echo $2
+∙       echo $3
+∙ }

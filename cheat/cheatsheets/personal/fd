@@ -1,0 +1,24 @@
+---
+syntax: bash
+tags: [utils]
+---
+# Simple search:
+fd <search query>
+
+# Recursively find all .zip archives and unpack them (command operates on every result)
+fd -e zip -x unzip
+
+# Find all .cpp files and compile them (command operates on the list)
+fd -e '.cpp$' -X g++
+
+# Specifying the root directory for the search:
+fd <search query> <directory>
+
+# Searching for a particular file extension:
+fd -e <file extension> <search query>
+
+# Search for hidden and ignored files:
+fd -H <search query>
+
+# Excluding specific files or directories:
+fd -E <file or directories which should be excluded> <search query>

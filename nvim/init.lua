@@ -72,7 +72,8 @@ nnoremap('<leader>c', ":nohl<CR>")
 
 -- Remaps
 nnoremap("<leader><leader>", "<Esc>")
-nnoremap("<C-]>", '<Cmd>vsp <C-R>=expand("%:p:h") . "/" <CR>')
+nnoremap("<C-]>", '<C-w>v')
+nnoremap("<C-->", '<C-w>s')
 nnoremap("<C-->", '<Cmd>sp <C-R>=expand("%:p:h") . "/" <CR>')
 nnoremap("<leader>;", 'a<Enter>{<Enter>}<Esc>O')
 nnoremap("<leader>'", 'a{<Enter>}<Esc>O')
@@ -82,6 +83,7 @@ nnoremap("<leader><Enter>", 'i<Enter><Esc>k$')
 nnoremap("<leader>we", '<C-w>=')
 nnoremap("<leader>ws", '<C-w>x')
 nnoremap("<leader>c", 'o/*')
+nnoremap("CTRL-\\", 'dE')
 vim.api.nvim_set_keymap('i', "<C-;>", '<Esc>a<Enter>{<Enter>}<Esc>O', {noremap = true})
 -- -- Colorscheme
 vim.cmd [[colorscheme kanagawa]]

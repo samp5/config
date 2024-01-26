@@ -1,0 +1,35 @@
+---
+tags: [bash]
+---
+# ?	zero or one occurrences of the preceding element. 
+colou?r matches both "color" and "colour".
+
+# *	zero or more occurrences of the preceding element.
+ab*c matches "ac", "abc", "abbc", "abbbc", etc.
+
+# +	one or more occurrences of the preceding element.  
+ab+c matches "abc", "abbc", "abbbc", and so on, but not "ac".
+
+# . matches any character
+a.b matches 'acb', 'axb', etc.
+a.*b matches 'accccccb', 'axxxb' etx.
+
+# | logical or
+abc|def matches 'abc' or 'def'
+
+# [ ] list of match options, can include ranges
+[abc] matches 'a', 'b', 'c'
+
+# ^ matches starting position within the string
+^x matches 'xyz' but not 'wxyz'
+
+# $ matches the ending position of the string
+x$ matches 'wx' but not 'wxy'
+
+# {n}[19]	The preceding item is matched exactly n times.
+
+# {min,}[19]	The preceding item is matched min or more times.
+
+# {,max}[19]	The preceding item is matched up to max times.
+
+# {min,max}[19]	The preceding item is matched at least min times, but not more than max times.

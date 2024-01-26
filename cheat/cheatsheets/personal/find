@@ -1,0 +1,44 @@
+# To find files by case-insensitive extension (ex: .jpg, .JPG, .jpG):
+find . -iname "*.jpg"
+
+# To find directories:
+find . -type d
+
+# To find files:
+find . -type f
+
+# To find files newer than 1 day old and copy elsewhere (remove -p flag in xargs to not be asked):
+find . -type f -ctime -1 -print0 | xargs -0 -p cp -t <dir>
+
+# To search for directories named build at a max depth of 2 directories:
+find . -maxdepth 2 -name build -type d
+
+# To find files with extension '.txt' and remove them:
+find ./path/ -name '*.txt' -delete
+
+# To find files with extension '.txt' and dump their contents:
+find ./path/ -name '*.txt' -exec cat '{}' \;
+
+# To find files with extension '.txt' and look for a string into them:
+find ./path/ -name '*.txt' | xargs grep 'string'
+
+# To search for and delete empty directories:
+find . -type d -empty -exec rmdir {} \;
+
+# To search all files who are not in .git directory:
+find . ! -iwholename '*.git*' -type f
+
+# To find all files changed in last 2 days:
+find . -type f -ctime -48h
+find . -type f -ctime -2
+# Or created in last 2 days:
+find . -type f -Btime -2
+# Or accessed in last 2 days:
+find . -type f -atime -2
+
+# To find and rename (imperfect) all files and dirs that have a comma in the
+# name (dry-run):
+find . -name '*,*' | while read f; do echo mv "$f" "${f//,/}"; done
+
+# To find files that are newer than a file:
+find <path> -newer <target-file>

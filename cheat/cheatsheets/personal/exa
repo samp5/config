@@ -1,0 +1,6 @@
+# List all files with the largest at the top
+exa --oneline -reverse ---sort=size
+
+# Display a tree of files, three levels deep, with each file's metadata
+exa --long --tree --level=3
+

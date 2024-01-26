@@ -1,0 +1,11 @@
+---
+syntax: bash
+tags: [ bash ]
+---
+
+# for loops
+#		loop through *.txt files in this directory
+for f in $(ls *txt)
+∙ do
+∙       echo "File $f contains: $(cat $f)"
+∙ done
