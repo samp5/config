@@ -43,52 +43,6 @@ return {
 			})
 		end
 	},
-	{
-		'folke/which-key.nvim',
-		config = function()
-			require("which-key").setup({
-				plugins = {
-					spelling = {
-						enabled = true,
-						suggestions = 20,
-					}
-				}
-			})
-		end
-	},
-	{
-		'noib3/nvim-cokeline',
-		config = function()
-			require('cokeline').setup({
-				sidebar = {
-					filetype = 'NvimTree',
-					components = {
-						{
-							text = '  NvimTree',
-							style = 'bold',
-						},
-					}
-				},
-			})
-			vim.api.nvim_set_keymap('n', 'H', '<Plug>(cokeline-focus-prev)', { silent = true })
-			vim.api.nvim_set_keymap('n', 'L', '<Plug>(cokeline-focus-next)', { silent = true })
-			vim.api.nvim_set_keymap('n', '<C-%s>', '<Plug>(cokeline-close-%s)', {silent=true})
-		end
-	},
-	{
-		'nvim-lualine/lualine.nvim',
-		dependencies = 'SmiteshP/nvim-navic',
-		config = function()
-			local navic = require('nvim-navic')
-			require('lualine').setup({
-				options = { theme = 'onedark' },
-				extensions = { 'nvim-tree' },
-				sections = {
-					lualine_c = { "navic" },
-				},
-			})
-		end
-	},
 	'yamatsum/nvim-cursorline',
 	{
 		"folke/trouble.nvim",

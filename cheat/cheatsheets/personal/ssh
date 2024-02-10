@@ -1,0 +1,31 @@
+---
+syntax: bash
+tags: [bash]
+---
+# gen keys like
+ssh-keygen
+# to attach to bertvm
+# use  op item get uillinois.edu --fields password for password
+ssh spran4@bertvm.cs.uic.edu
+
+# To ssh via pem file (which normally needs 0600 permissions):
+ssh -i <pemfile> <user>@<host>
+
+# To connect on a non-standard port:
+ssh -p <port> <user>@<host>
+
+# To connect and forward the authentication agent:
+ssh -A <user>@<host>
+
+# To execute a command on a remote server:
+ssh -t <user>@<host> 'the-remote-command'
+
+# To launch a specific x application over SSH:
+ssh -X -t <user>@<host> 'chromium-browser'
+
+# To create a SOCKS proxy on localhost and <port>:
+ssh -qND <port> <user>@<host>
+
+# To copy files and folders through ssh from remote host to pwd with tar.gz
+# compression when there is no rsync command available:
+ssh <user>@<host> "cd /var/www/Shared/; tar zcf - asset1 asset2" | tar zxf -

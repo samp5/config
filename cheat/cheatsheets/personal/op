@@ -1,0 +1,9 @@
+---
+syntax: bash
+tags: []
+---
+# Get all items in vault <name> 
+op item list --vault <name>
+
+# get a specific field of a items json
+op item get chicago_covid_token --fields token

@@ -1,0 +1,10 @@
+---
+syntax: bash
+tags: [bash, c++, c, clang]
+---
+# to compile with address sanitizer
+clang -01 -g -fsanitize=address -fno-omit-frame-pointer foo.c
+
+# More info here
+https://github.com/google/sanitizers/wiki/AddressSanitizer
+

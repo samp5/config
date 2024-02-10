@@ -1,0 +1,29 @@
+---
+syntax: bash
+tags: [ tmux ]
+---
+# To restore tmux session:
+tmux attach
+
+# To rename session:
+Ctrl-a $
+
+# To switch session:
+Ctrl-a s
+
+# To start a shared session:
+tmux -S /tmp/your_shared_session
+chmod 777 /tmp/your_shared_session
+
+# To help screen (q to quit):
+Ctrl-a ?
+
+# To destroy a window:
+Ctrl-a x
+
+# Mark current pane
+Ctrl-a m
+
+# Previous Window
+Ctrl-a p
+
