@@ -1,0 +1,12 @@
+extends c
+
+# iterator
+snippet iter
+	for (${1:std::vector}<${2:type}>::${3:const_iterator} ${4:i} = ${5:container}.begin(); $4 != $5.end(); ++$4) {
+		${6}
+	}
+
+snippet print-vars
+	${1:type} ${2:var}, ${3:var}, ${4:var};
+	std::cout << "$2: " << $2 << "$3: " << $3 << 
+								"$4: " << $4 << '\n';

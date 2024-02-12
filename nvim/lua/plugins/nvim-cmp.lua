@@ -24,10 +24,13 @@ return {
     end
     -- loads vscode style snippets from installed plugins (e.g. friendly-snippets)
     require("luasnip.loaders.from_vscode").lazy_load()
+    require("luasnip.loaders.from_snipmate").lazy_load({
+      paths = '~/.config/nvim/lua/plugins/snips/snippets'}
+    )
 
     cmp.setup({
       completion = {
-        completeopt = "menu,menuone,preview",
+        completeopt = "menu,menuone,noselect,preview",
       },
       snippet = { -- configure how nvim-cmp interacts with snippet engine
         expand = function(args)
@@ -41,18 +44,12 @@ return {
         ["<C-'>"] = cmp.mapping.complete(),
         ["<C-j>"] = cmp.mapping.select_next_item(),
         ["<CR>"] = cmp.mapping.confirm({
-          select = true,
+          select = false,
           behavior = cmp.ConfirmBehavior.Replace
         }),
         ["<Tab>"] = cmp.mapping(function(fallback)
-        if cmp.visible() then
-          cmp.select_next_item()
-          -- You could replace the expand_or_jumpable() calls with expand_or_locally_jumpable() 
-          -- that way you will only jump inside the snippet region
-          elseif luasnip.expand_or_jumpable() then
+          if luasnip.expand_or_jumpable() then
             luasnip.expand_or_jump()
-          elseif has_words_before() then
-            cmp.complete()
           else
             fallback()
           end
