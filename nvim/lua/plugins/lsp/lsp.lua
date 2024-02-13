@@ -4,19 +4,17 @@ return {
 	dependencies = {
       {"hrsh7th/cmp-nvim-lsp"},
       {"SmiteshP/nvim-navic"},
+      {"p00f/clangd_extensions.nvim"},
+      {"lukas-reineke/lsp-format.nvim"},
 		},
   config = function()
     -- import lspconfig plugin
 
     local on_attach = function(client, bufnr)
-
-			local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr,...) end
-
-			require "lsp-format".on_attach(client)
 			require 'nvim-navic'.attach(client, bufnr)
-
     end
 
+    -- Error icons
     local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
 
     for type, icon in pairs(signs) do
@@ -41,13 +39,21 @@ return {
 		lspconfig.clangd.setup {
       capabilities = capabilities,
 			on_attach = function(client, bufnr)
-        local navic = require("nvim-navic")
-        navic.attach(client, bufnr)
+        require("lsp-format").on_attach(client, bufnr)
+        require("clangd_extensions.inlay_hints").setup_autocmd()
+        require("clangd_extensions.inlay_hints").set_inlay_hints()
+        require("nvim-navic").attach(client, bufnr)
+
+        nnoremap('<leader>ct','<cmd>ClangdAST<CR>', 'Abstract Syntax Tree')
+        nnoremap('<leader>cu','<cmd>ClangdMemoryUsage<CR>', 'Clangd Memory Usage')
+        nnoremap('<leader>k', '<cmd>ClangdSymbolInfo<CR>','ClangdSymbolInfo')
       end,
+
 			cmd = {
 				"clangd",
-				"--completion-style=bundled",
+				"--completion-style=detailed",
 				"--clang-tidy",
+        "--clang-tidy-checks=*",
 				"--cross-file-rename",
 			}
 		}

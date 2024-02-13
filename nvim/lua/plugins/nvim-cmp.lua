@@ -75,6 +75,12 @@ return {
         --{ name = "latex_symbols"},
       }),
 
+      sorting = {
+        comparators = {
+          require('clangd_extensions.cmp_scores'),
+        },
+      },
+
       -- enable latex symbol source for markdown
       cmp.setup.filetype('markdown', {
         sources = cmp.config.sources({

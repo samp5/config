@@ -10,8 +10,8 @@ function nnoremap(from, to, desc)
 	remap('n', from, to, {desc= desc, noremap = true })
 end
 
-function vnoremap(from, to)
-	remap('v', from, to, { noremap = true })
+function vnoremap(from, to, desc)
+	remap('v', from, to, { noremap = true, desc = desc })
 end
 function nmap(from, to)
 	remap('n', from, to, {})
