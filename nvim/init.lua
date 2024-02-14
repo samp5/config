@@ -79,7 +79,7 @@ nnoremap('<leader>c', ':nohl<CR>')
 -- Remaps
 nnoremap('<C-]>', '<C-w>v', 'Split Window Vertically')
 nnoremap('<C-=>', '<C-w>s', 'Split Window horizontally')
-inoremap('<C-\\>', '<Esc>ldBi', 'Ctrl Backspace')
+inoremap('<C-\\>', '<Esc>dBi', 'Ctrl Backspace')
 nnoremap("<leader>'", 'a{<Enter>}<Esc>O', 'Brackets (the right way)')
 nnoremap('<leader>o', 'o<Esc>k', 'Open line below (no insert)')
 nnoremap('<leader>O', 'O<Esc>j', 'Open line below (no insert)')
