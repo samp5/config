@@ -4,28 +4,24 @@ return {
   dependencies = {
     "neovim/nvim-lspconfig",
     "hrsh7th/cmp-buffer", -- source for text in buffer
-    "hrsh7th/cmp-path", -- source for file system paths
+    "hrsh7th/cmp-path",   -- source for file system paths
     "hrst7th/cmp-nvim-lsp",
     "hrst7th/nvim-cmp",
-    "L3MON4D3/LuaSnip", -- snippet engine
-    "saadparwaiz1/cmp_luasnip", -- for autocompletion
+    "L3MON4D3/LuaSnip",             -- snippet engine
+    "saadparwaiz1/cmp_luasnip",     -- for autocompletion
     "rafamadriz/friendly-snippets", -- useful snippets
-    "onsails/lspkind.nvim", -- vs-code like pictograms
-    "kdheepak/cmp-latex-symbols", --latex for markdown files
+    "onsails/lspkind.nvim",         -- vs-code like pictograms
+    "kdheepak/cmp-latex-symbols",   --latex for markdown files
   },
   config = function()
     local cmp = require("cmp")
     local luasnip = require("luasnip")
     local lspkind = require("lspkind")
 
-    local has_words_before = function()
-    local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-      return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
-    end
     -- loads vscode style snippets from installed plugins (e.g. friendly-snippets)
     require("luasnip.loaders.from_vscode").lazy_load()
     require("luasnip.loaders.from_snipmate").lazy_load({
-      paths = '~/.config/nvim/lua/plugins/snips/snippets'}
+      paths = '~/.config/nvim/lua/plugins/snips/snippets' }
     )
 
     cmp.setup({
@@ -64,13 +60,13 @@ return {
             fallback()
           end
         end, { "i", "s" }),
-          }),
+      }),
       -- sources for autocompletion
       sources = cmp.config.sources({
         { name = "nvim_lsp" },
         { name = "luasnip" }, -- snippets
-        { name = "buffer" }, -- text within current buffer
-        { name = "path" }, -- file system paths
+        { name = "buffer" },  -- text within current buffer
+        { name = "path" },    -- file system paths
         { name = "nvim_lsp_signature_help" },
         --{ name = "latex_symbols"},
       }),
@@ -86,8 +82,8 @@ return {
         sources = cmp.config.sources({
           { name = "latex_symbols" },
           { name = "luasnip" }, -- snippets
-          { name = "buffer" }, -- text within current buffer
-          { name = "path" }, -- file system paths
+          { name = "buffer" },  -- text within current buffer
+          { name = "path" },    -- file system paths
         })
       }),
 
