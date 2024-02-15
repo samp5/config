@@ -1,0 +1,7 @@
+---
+syntax: bash
+tags: [git, bash]
+---
+
+# To see all available options
+delta --help

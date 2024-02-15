@@ -1,0 +1,42 @@
+[user]
+	name = Sam Praneis
+  signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJgZD75QFTg2qaFDJ2ywcDLMvPS3PheET51UrlKF0oiQ
+	email = sampraneis@gmail.com
+[init]
+	defaultBranch = main
+[core]
+	editor = nvim
+	pager =  delta
+[interactive]
+  diffFilter = delta --color-only --features=interactive
+[delta]
+  navigate = true    # use n and N to move between diff sections
+  light = false      # set to true if you're in a terminal w/ a light background color (e.g. the default macOS terminal)
+[merge]
+    conflictstyle = diff3
+[diff]
+    colorMoved = default
+[gpg]
+  format = ssh
+[gpg "ssh"]
+  program = "/mnt/c/Users/sampr/AppData/Local/1Password/app/8/op-ssh-sign-wsl"
+[commit]
+  gpgsign = true
+[rerere]
+  # this automatically resolves merge conflicts if you've manually resolved it before
+	enabled = true
+	autoUpdate = true
+[branch]
+  # sort branches by most recent first
+	sort = -committerdate
+[column]
+	ui = auto
+[alias]
+	fpush = push --force-with-lease
+  s = status
+  co = checkout
+  last = log -1 HEAD
+  lg = log --graph --abbrev-commit --oneline
+  
+[color]
+	ui = true

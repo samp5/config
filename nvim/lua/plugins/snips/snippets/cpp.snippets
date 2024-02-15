@@ -25,3 +25,52 @@ snippet new_file
   }
 
    */
+
+snippet dmf1
+  /**
+    * ${5: purpose (one line)}
+    *
+    * ${6: details}
+    *
+    * @param1 $4  ${7:descrip of para1}
+    * @return ${8:descrip of return}
+    */
+  ${1:return_type} ${2:name}(${3: type} ${4:param1}){
+    ${9}
+  }
+
+snippet dmf2
+  /**
+    * ${7: purpose (one line)}
+    *
+    * ${8: details}
+    *
+    * @param1 $4  ${9:descrip of para1}
+    * @param2 $6  ${10:descrip of para1}
+    * @return ${11:descrip of return}
+    */
+  ${1:return_type} ${2:name}(${3: type} ${4:param1}, ${5:type} ${6:param2}){
+    ${10}
+  }
+
+snippet dmf3
+  /**
+    * ${9: purpose (one line)}.
+    *
+    * ${10: details}
+    *
+    * @param1 $4  ${11:descrip of para1}
+    * @param2 $6  ${12:descrip of para2}
+    * @param3 $6  ${13:descrip of para3}
+    * @return ${14:descrip of return}
+    */
+  ${1:return_type} ${2:name}(${3: type} ${4:param1}, ${5:type} ${6:param2}, ${7:type} ${8:param2}){
+    ${14}
+  }
+
+snippet h1
+  //>>>>>>>>>>>>>>>>>>> ${1:heading} <<<<<<<<<<<<<<<<
+snippet h2
+  /*--------------------------------------------------------------*\
+   *              ${1: heading}
+  \*--------------------------------------------------------------*/
