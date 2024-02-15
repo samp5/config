@@ -5,3 +5,37 @@ snippet main
 	{
 		${0}
 	}
+
+snippet funcdoc
+  /**
+    * ${1: purpose (one line)}
+    *
+    * ${2: details}
+    *
+    * @param1 ${3: param1} ${4:descrip of para1}
+    * @param2 ${5: param2} ${6:descrip of para2}
+    * @return ${7: return desrip}
+    */
+
+snippet func1wdoc
+  /**
+    * ${5: purpose (one line)}
+    *
+    * ${6: details}
+    *
+    * @param1 $4  ${7:descrip of para1}
+    * @return ${8:descrip of return}
+    */
+  ${1:return_type} ${2:name}(${3: type} ${4:param1});
+
+snippet func2wdoc
+  /**
+    * ${7: purpose (one line)}
+    *
+    * ${8: details}
+    *
+    * @param1 $4  ${9:descrip of para1}
+    * @param2 $6  ${10:descrip of para1}
+    * @return ${11:descrip of return}
+    */
+  ${1:return_type} ${2:name}(${3: type} ${4:param1}, ${5:type} ${6:param2});
