@@ -1,0 +1,12 @@
+---
+syntax: bash
+tags: [valgrind, c++, c, memory]
+---
+# to run a memory check on an executable
+valgrind --tool=memcheck ./a.out
+
+# basic structure
+valgrind [valgrind-options] your-prog [your-prog-options]
+
+# more info
+https://valgrind.org/docs/manual/manual-core.html#manual-core.toolopts
