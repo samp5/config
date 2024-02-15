@@ -27,12 +27,12 @@ return {
       -- list of servers for mason to install
       ensure_installed = {
         "pyright",
-				"clangd",
-				"mdx_analyzer",
-				"cssls",
-				"html",
-				"tailwindcss",
-				"lua_ls",
+        "clangd",
+        "mdx_analyzer",
+        "cssls",
+        "html",
+        "tailwindcss",
+        "lua_ls",
         "tsserver",
       },
       -- auto-install configured servers (with lspconfig)
@@ -41,12 +41,12 @@ return {
 
     mason_tool_installer.setup({
       ensure_installed = {
-				"prettier",
-				"stylua",
-				"isort",
-				"pylint",
-				"black",
-				"eslint_d",
+        "prettier",
+        "stylua",
+        "isort",
+        "pylint",
+        "black",
+        "eslint_d",
       },
     })
   end,

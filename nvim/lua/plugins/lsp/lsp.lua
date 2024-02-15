@@ -55,8 +55,8 @@ return {
         bnnoremap('<leader>a', '<cmd>lua vim.lsp.buf.code_action()<CR>', 'See code actions', bufnr)
         bnnoremap('<space>sn', '<cmd>lua vim.lsp.buf.rename()<CR>', 'Smart Rename', bufnr)
         bnnoremap('K', '<cmd>lua vim.lsp.buf.hover()<CR>', 'Hover', bufnr)
-        bnnoremap('<leader>D', '<cmd>Telescope diagnostics bufnr=1<CR>', 'Telescope Diagnostics', bufnr)   -- show  diagnostics for fil, bufnre
-        bnnoremap('<leader>d', '<cmd>vim.diagnostic.open_float<CR>', 'Show diagnostics for line', bufnr)   -- show diagnostics for line
+        bnnoremap('<leader>D', '<cmd>Telescope diagnostics bufnr=1<CR>', 'Telescope Diagnostics', bufnr) -- show  diagnostics for fil, bufnre
+        bnnoremap('<leader>d', '<cmd>vim.diagnostic.open_float<CR>', 'Show diagnostics for line', bufnr) -- show diagnostics for line
         bnnoremap('<leader>ct', '<cmd>ClangdAST<CR>', 'Abstract Syntax Tree', bufnr)
         bnnoremap('<leader>cu', '<cmd>ClangdMemoryUsage<CR>', 'Clangd Memory Usage', bufnr)
         bnnoremap('<leader>k', '<cmd>ClangdSymbolInfo<CR>', 'ClangdSymbolInfo', bufnr)
@@ -65,6 +65,7 @@ return {
 
 
       local capabilities = require('cmp_nvim_lsp').default_capabilities()
+
       -- configure python server
       lspconfig.pyright.setup {
         on_attach = on_attach,
