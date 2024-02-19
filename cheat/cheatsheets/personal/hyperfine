@@ -1,0 +1,13 @@
+---
+syntax: bash
+tags: [hyperfine]
+---
+# Set the number of runs
+hyperfine --runs 5 'sleep 0.3'
+
+# To run sleep with 0.3, 0.5, 0.7
+hyperfine --parameter-scan delay 0.3 0.7 -D 0.2 'sleep {delay}'
+
+# To run non-numeric parameters
+hyperfine -L compiler gcc,clang '{compiler} main.cpp'
+
