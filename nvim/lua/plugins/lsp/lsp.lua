@@ -1,6 +1,8 @@
 return {
   {
     "neovim/nvim-lspconfig",
+    lazy = true,
+    event = { "BufReadPre", "BufNewFile" }, -- loads for new files or new buffers
     dependencies = {
       { "hrsh7th/cmp-nvim-lsp" },
       { "SmiteshP/nvim-navic" },
@@ -84,10 +86,10 @@ return {
         on_attach = clang_attach,
         cmd = {
           "clangd",
-          "--completion-style=detailed",
-          "--clang-tidy",
-          "--clang-tidy-checks=*",
-          "--cross-file-rename",
+          -- "--completion-style=detailed",
+          -- "--clang-tidy",
+          -- "--clang-tidy-checks=*",
+          -- "--cross-file-rename",
         }
       }
 
