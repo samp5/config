@@ -12,14 +12,23 @@ return {
     vim.cmd([[ highlight NvimTreeFolderArrowClosed guifg=#3FC5FF ]])
     vim.cmd([[ highlight NvimTreeFolderArrowOpen guifg=#3FC5FF ]])
 
+    -- change color to mauve
+    vim.cmd([[ highlight NvimTreeOpenedHL guifg=#c38185 ]])
+
     -- configure nvim-tree
     nvimtree.setup({
+      hijack_cursor = true,
       view = {
         width = 35,
         relativenumber = true,
+        float = {
+          -- can't decide if I like this?
+          --enable = true,
+        },
       },
       -- change folder arrow icons
       renderer = {
+        highlight_opened_files = "all",
         indent_markers = {
           enable = true,
         },
@@ -40,10 +49,7 @@ return {
           window_picker = {
             enable = false,
           },
-        },
-      },
-      filters = {
-        custom = { ".DS_Store" },
+        }
       },
       git = {
         ignore = true,
@@ -51,11 +57,12 @@ return {
     })
 
     -- set keymaps
-    local keymap = vim.keymap -- for conciseness
+    local keymap = vim
+        .keymap                                                                                   -- for conciseness
 
-    keymap.set("n", "<leader>ee", "<cmd>NvimTreeToggle<CR>", { desc = "Toggle file explorer" }) -- toggle file explorer
-    keymap.set("n", "<leader>ef", "<cmd>NvimTreeFocus<CR>", { desc = "Open file tee if it is closed and focus on explorer" }) -- toggle file explorer on current file
-    keymap.set("n", "<leader>ec", "<cmd>NvimTreeCollapse<CR>", { desc = "Collapse file explorer" }) -- collapse file explorer
+    keymap.set("n", "<leader>ee", "<cmd>NvimTreeToggle<CR>", { desc = "Toggle file explorer" })   -- toggle file explorer
+    keymap.set("n", "<leader>ef", "<cmd>NvimTreeFocus<CR>",
+      { desc = "Open file tee if it is closed and focus on explorer" })                           -- toggle file explorer on current file
     keymap.set("n", "<leader>er", "<cmd>NvimTreeRefresh<CR>", { desc = "Refresh file explorer" }) -- refresh file explorer
   end,
 }

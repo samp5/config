@@ -55,6 +55,7 @@ o.fileencoding = 'UTF-8'
 wo.number = true
 wo.relativenumber = true
 wo.wrap = true
+wo.linebreak = true
 o.foldmethod = 'expr'
 
 -- Use treesitter for fold expressions
@@ -77,16 +78,23 @@ vim.api.nvim_create_autocmd({ 'BufRead' }, {
 nnoremap('<leader>c', ':nohl<CR>')
 
 -- Remaps
-nnoremap('<C-]>', '<C-w>v', 'Split Window Vertically')
-nnoremap('<C-=>', '<C-w>s', 'Split Window horizontally')
+nnoremap('<M-\\>', '<C-w>v', 'Split Window Vertically')
+nnoremap('<M-->', '<C-w>s', 'Split Window horizontally')
 inoremap('<C-\\>', '<Esc>dBi', 'Ctrl Backspace')
-nnoremap("<leader>'", 'a{<Enter>}<Esc>O', 'Brackets (the right way)')
+inoremap("<M-'>", '<Esc>A{<Enter>}<Esc>O', 'Brackets (the right way)')
+nnoremap("<M-'>", 'A{<Enter>}<Esc>O', 'Brackets (the right way)')
 nnoremap('<leader>o', 'o<Esc>k', 'Open line below (no insert)')
 nnoremap('<leader>O', 'O<Esc>j', 'Open line below (no insert)')
 nnoremap('<leader>we', '<C-w>=', 'Equalize Windows')
 nnoremap('<leader>wl', '5<C-w>>', 'Increase current window size')
 nnoremap('<leader>wh', '5<C-w><', 'Decrease current window size')
 nnoremap('<leader>ws', '<C-w>x', 'Swap windows')
+
+-- quits
+nnoremap('<M-q>', '<cmd>wqa<CR>', 'Write quit all')
+nnoremap('<M-w>', '<cmd>wa<CR>', 'Write all')
+nnoremap('<C-M-q>', '<cmd>wq<CR>', 'Write quit')
+nnoremap('<leader>ec', '<cmd>q<CR>', 'Quit')
 
 -- -- Colorscheme
 vim.cmd [[colorscheme kanagawa]]
