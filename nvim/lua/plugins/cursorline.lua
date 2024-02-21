@@ -1,4 +1,4 @@
-return{
+return {
   'yamatsum/nvim-cursorline',
   require('nvim-cursorline').setup {
     cursorline = {
@@ -12,5 +12,4 @@ return{
       hl = { underline = true },
     }
   }
-
 }

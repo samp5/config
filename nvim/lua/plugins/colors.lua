@@ -9,7 +9,7 @@ return {
         commentStyle = { italic = false },
         keywordStyle = { italic = false },
         statementStyle = { bold = true },
-        dimInactive = false, -- dim inactive window `:h hl-NormalNC`
+        dimInactive = false,   -- dim inactive window `:h hl-NormalNC`
         transparent = true,
         terminalColors = true, -- define vim.g.terminal_color_{0,17}
         colors = {
@@ -44,23 +44,4 @@ return {
     end
   },
   'yamatsum/nvim-cursorline',
-  {
-    "folke/trouble.nvim",
-    dependencies = "nvim-tree/nvim-web-devicons",
-    config = function()
-      require("trouble").setup {}
-      vim.api.nvim_set_keymap("n", "<leader>xx", "<cmd>Trouble<cr>",
-        { silent = true, noremap = true }
-      )
-    end
-  },
-  --[[{
-		'sindrets/diffview.nvim',
-		dependencies = 'nvim-lua/plenary.nvim',
-		config = function()
-			require("diffview").setup({
-				enhanced_diff_hl = true
-			})
-		end
-	},]]
 }
