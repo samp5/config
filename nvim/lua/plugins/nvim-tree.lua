@@ -13,7 +13,7 @@ return {
     vim.cmd([[ highlight NvimTreeFolderArrowOpen guifg=#3FC5FF ]])
 
     -- change color to mauve
-    vim.cmd([[ highlight NvimTreeOpenedHL guifg=#c38185 ]])
+    vim.cmd([[ highlight NvimTreeOpenedHL guifg=#A0A07A ]])
 
     -- configure nvim-tree
     nvimtree.setup({
@@ -28,7 +28,7 @@ return {
       },
       -- change folder arrow icons
       renderer = {
-        highlight_opened_files = "all",
+        highlight_opened_files = "name",
         indent_markers = {
           enable = true,
         },

@@ -75,7 +75,7 @@ vim.api.nvim_create_autocmd({ 'BufRead' }, {
 })
 
 -- Get rid of search highlighting
-nnoremap('<leader>c', ':nohl<CR>')
+nnoremap('<leader>cl', ':nohl<CR>', 'clear search highlighting')
 
 -- Remaps
 nnoremap('<M-\\>', '<C-w>v', 'Split Window Vertically')

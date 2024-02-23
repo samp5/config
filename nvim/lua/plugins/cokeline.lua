@@ -73,12 +73,6 @@ return {
         ("<Plug>(cokeline-focus-%s)"):format(i),
         { silent = true }
       )
-      map(
-        "n",
-        ("<Leader>%s"):format(i),
-        ("<Plug>(cokeline-switch-%s)"):format(i),
-        { silent = true }
-      )
     end
   end
 }
