@@ -6,7 +6,7 @@ return {
     "hrsh7th/cmp-buffer", -- source for text in buffer
     "hrsh7th/cmp-path",   -- source for file system paths
     "hrst7th/cmp-nvim-lsp",
-    "hrst7th/nvim-cmp",
+    "windwp/nvim-autopairs",
     "L3MON4D3/LuaSnip",             -- snippet engine
     "saadparwaiz1/cmp_luasnip",     -- for autocompletion
     "rafamadriz/friendly-snippets", -- useful snippets
@@ -17,6 +17,7 @@ return {
     local cmp = require("cmp")
     local luasnip = require("luasnip")
     local lspkind = require("lspkind")
+
 
     -- loads vscode style snippets from installed plugins (e.g. friendly-snippets)
     require("luasnip.loaders.from_vscode").lazy_load()

@@ -6,7 +6,6 @@ return {
   end,
   opts = {
     window = {
-      winblend = 75,
       border = "single",
     }
   },

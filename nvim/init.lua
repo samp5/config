@@ -28,6 +28,8 @@ vim.opt.rtp:prepend(lazypath)
 require('lazy').setup({
   { import = 'plugins' },
   { import = 'plugins.lsp' },
+  { import = 'plugins.dap' },
+
 })
 
 -- Global vim settings
@@ -72,6 +74,15 @@ end
 --folding
 vim.api.nvim_create_autocmd({ 'BufRead' }, {
   callback = function() o.foldlevel = 99 end
+})
+
+-- highlight on yank
+vim.api.nvim_create_autocmd('TextYankPost', {
+  desc = 'Highlight when yanking (copying) text',
+  group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
+  callback = function()
+    vim.highlight.on_yank()
+  end,
 })
 
 -- Get rid of search highlighting

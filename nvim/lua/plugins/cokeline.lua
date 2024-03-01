@@ -26,7 +26,7 @@ return {
         {
           text = function(buffer)
             if buffer.pick_letter ~= string.sub(buffer.filename, 0, 1) then
-              return ' ' .. buffer.pick_letter .. ' '
+              return ' (' .. buffer.pick_letter .. ') '
             else
               return ''
             end
@@ -64,15 +64,5 @@ return {
     nnoremap('H', '<Plug>(cokeline-focus-prev)', 'Focus previous buffer')
     nnoremap('L', '<Plug>(cokeline-focus-next)', 'Focus Next buffer')
     nnoremap('X', '<Plug>(cokeline-pick-close)', 'Pick Close')
-
-    local map = vim.api.nvim_set_keymap
-    for i = 1, 9 do
-      map(
-        "n",
-        ("<F%s>"):format(i),
-        ("<Plug>(cokeline-focus-%s)"):format(i),
-        { silent = true }
-      )
-    end
   end
 }
