@@ -1,0 +1,16 @@
+alias cat="batcat"
+alias che="cheat"
+alias vi="nvim"
+alias t="tmux attach -t"
+alias lf="exa -l -h -m -b --git --icons"
+alias ls="exa --color=always"
+alias lt="exa --tree --level=3"
+alias cl="clear"
+alias rm="rm -i"
+alias g++="g++ -Wpedantic -Wall -Wextra -Wcast-align -Wduplicated-cond -Wlogical-op -Wswitch-enum"
+alias fman='compgen -c | fzf | xargs man'
+# Execute these gdb commands
+alias gdb="gdb -q -x ~/.gdbinit"
+alias cd="z"
+alias cdi="zi"
+alias x="exit"
